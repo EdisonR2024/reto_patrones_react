@@ -7,12 +7,12 @@ function ListaTarjetas() {
     const { notas } = useContext(ContextoNotas);
 
     return (
-        <div>
+        <>
             {notas.map(
                 dato =>
                     <Tarjeta key={dato.id} {...dato} />
             )}
-        </div>
+        </>
     );
 }
 

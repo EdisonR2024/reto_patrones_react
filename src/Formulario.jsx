@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { ContextoNotas } from "./ContextoNotas";
+import "./Formulario.css"
 
 function Formulario() {
 
@@ -11,7 +12,6 @@ function Formulario() {
 
     const agregarTarjeta = (e) => {
         e.preventDefault();
-        // console.log(`Titulo: ${titulo} - Desc: ${descripcion}`);
 
         const nota = {
             id: uuidv4(),
@@ -34,14 +34,26 @@ function Formulario() {
     }
 
     return (
-        <form onSubmit={agregarTarjeta}>
-            <label> Título:
-                <input type="text" onChange={actualizaTitulo} value={titulo} name="titulo" />
-            </label>
-            <label> Descripción:
-                <input type="text" onChange={actualizaDesc} value={descripcion} name="desc" />
-            </label>
-            <button >Agregar Tarjeta</button>
+        <form onSubmit={agregarTarjeta} className="formulario">
+            <label htmlFor="title">Título:</label>
+            <input
+                type="text"
+                onChange={actualizaTitulo}
+                value={titulo}
+                name="titulo"
+                id="title"
+                required
+            />
+            <label htmlFor="desc">Descripción:</label>
+            <input
+                type="text"
+                onChange={actualizaDesc}
+                value={descripcion}
+                name="descripcion"
+                id="desc"
+                required
+            />
+            <button className="btn btn-success">Agregar Tarjeta</button>
         </form>
     )
 }
