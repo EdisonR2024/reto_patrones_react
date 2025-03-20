@@ -1,18 +1,19 @@
 // import { useState } from 'react'
-import { useState } from 'react'
-// import { ContextoNotas } from './ContextoNotas'
-import Formulario from './Formulario'
-import ListaTarjetas from './ListaTarjetas'
+import { useState } from 'react';
+import { ContextoNotas } from './ContextoNotas'
+import Formulario from './Formulario';
+import ListaTarjetas from './ListaTarjetas';
 import './App.css';
+import { v4 as uuidv4 } from 'uuid';
 
 const datos = [
   {
-    id: '1',
+    id: uuidv4(),
     titulo: 'Estudiar',
     descripcion: 'Curso React'
   },
   {
-    id: '2',
+    id: uuidv4(),
     titulo: 'Estudiar BDD',
     descripcion: 'Curso SQL'
   }
@@ -27,20 +28,22 @@ function App() {
     console.log("Actualizar Notas");
     setNotas([...notas, nota]);
 
+    console.log(notas);
+
   }
 
   return (
-    // <ContextoNotas.Provider value={notas}>
-    <div className='contenedor-principal'>
-      <h2 className='titulo-app'>Notas:</h2>
-      <div className='contenedor-form'>
-        <Formulario actualizaNotas={actualizaNotas} notas />
+    <ContextoNotas.Provider value={{ notas, actualizaNotas }}>
+      <div className='contenedor-principal'>
+        <h2 className='titulo-app'>Notas:</h2>
+        <div className='contenedor-form'>
+          <Formulario />
+        </div>
+        <div className='contenedor-tarjetas'>
+          <ListaTarjetas />
+        </div>
       </div>
-      <div className='contenedor-tarjetas'>
-        <ListaTarjetas datos={notas} />
-      </div>
-    </div>
-    // </ContextoNotas.Provider>
+    </ContextoNotas.Provider>
   )
 }
 

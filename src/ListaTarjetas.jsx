@@ -1,15 +1,16 @@
 import { useContext } from "react";
 import Tarjeta from "./Tarjeta";
+import { ContextoNotas } from "./ContextoNotas";
 
-function ListaTarjetas({datos}) {
+function ListaTarjetas() {
 
-    // const datos=useContext(ContextoNotas);
+    const { notas } = useContext(ContextoNotas);
 
     return (
         <div>
-            {datos.map(
+            {notas.map(
                 dato =>
-                    <Tarjeta key={dato.id} {...dato}/>
+                    <Tarjeta key={dato.id} {...dato} />
             )}
         </div>
     );
