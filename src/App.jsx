@@ -25,10 +25,10 @@ function App() {
   const [notas, setNotas] = useState(datos);
 
   const actualizaNotas = (nota) => {
-    console.log("Actualizar Notas");
+    // console.log("Actualizar Notas");
     setNotas([...notas, nota]);
 
-    console.log(notas);
+    // console.log(notas);
 
   }
 
