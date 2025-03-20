@@ -2,10 +2,11 @@
 
 .contenedor {
     border: 1px solid gray;
-    /* display: flex; */
     align-items: center;
     justify-content: center;
     @apply card bg-blue-100 h-25 w-60 shadow-2xl m-4 align-text-bottom;
+    
+    padding: 10px;
 
     h3 {
         font-weight: bold;

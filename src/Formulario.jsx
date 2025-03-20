@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
-import { ContextoNotas } from "./ContextoNotas";
+import { Contexto } from "./ContextoNotas";
 import "./Formulario.css"
 
 function Formulario() {
@@ -8,7 +8,7 @@ function Formulario() {
     const [titulo, setTitulo] = useState("");
     const [descripcion, setDescripcion] = useState("");
 
-    const { actualizaNotas } = useContext(ContextoNotas);
+    const { actualizaNotas } = useContext(Contexto);
 
     const agregarTarjeta = (e) => {
         e.preventDefault();
@@ -39,8 +39,7 @@ function Formulario() {
             <input
                 type="text"
                 onChange={actualizaTitulo}
-                value={titulo}
-                name="titulo"
+                value={titulo}            
                 id="title"
                 required
             />
@@ -49,7 +48,6 @@ function Formulario() {
                 type="text"
                 onChange={actualizaDesc}
                 value={descripcion}
-                name="descripcion"
                 id="desc"
                 required
             />
